@@ -1,0 +1,79 @@
+.container {
+  max-width: $max-container-width;
+  margin: 0 $container-margin;
+  display: flex;
+  flex-flow: row wrap;
+
+  @include respond-to(super-wide){
+    max-width: $max-container-width;
+    margin: auto;
+  }
+}
+main > .container {
+   margin: 0 $page-margin;
+  @include respond-to(super-wide){
+    max-width: $max-container-width;
+    margin: auto;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+$border: 1px solid $tag-color;
+$lesser-border: 1px solid $light-color;
+%nav-border {
+  border-bottom: rgb(0, 0, 0) solid 2px;
+  border-image-outset: 0;
+  border-image-repeat: fill;
+  border-image-slice: 0 0 11;
+  border-image-source: url(../images/border.png);
+  border-image-width: 2px;
+  //padding-bottom: $container-margin;
+}
+%border-bottom {
+	padding-bottom: $big2;
+	border-bottom: $lesser-border;
+	margin-bottom: $big2;
+}
+%border-bottom-dark {
+  	padding-bottom: $big1;
+	border-bottom: $border;
+	margin-bottom: $big1;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.nolink, &.nolink:hover {
+    text-decoration: none;
+  }
+}
+
+button, .button {
+  @extend %small1;
+  @extend %caps-sans;
+  padding: $base-size;
+  background-color: #080808;
+  color: #ffffff;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@include respond-to(medium-plus) {
+  main > div.container {
+    padding: 0 0 $big2 0;
+  }
+  main.has-top-image > div.container {
+    padding: 0 0 $big2 0;
+  }
+}
